@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Prototype-based Dataset Comparison.">
+  <meta name="keywords" content="Prototype-based Dataset Comparison, ProtoSim">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototype-based Dataset Comparison</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!--<link rel="icon" href="./static/images/favicon.svg">-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Prototype-based Dataset Comparison</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://nanne.github.io">Nanne van Noord</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Amsterdam</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!--<span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>-->
+              <!-- Video Link. -->
+              <!--<span class="link-block">
+                <a href="https://www.youtube.com/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/nanne/protosim"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+            <img src="./static/images/teaser.png"
+                 alt="Teaser of 8x2 Prototypes learned with ProtoSim."/>
+      <h2 class="subtitle has-text-centered">
+        ProtoSim is able to discover prototypes that are dataset specific or shared. <br/> 
+        From left to right: ImageNet “Wedding”, PASS “sunset skyline”, and shared
+“viaduct” prototypes.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light is-small">
+<div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+Dataset summarisation is a fruitful approach to dataset inspection. However, when applied to a single dataset the discovery of visual concepts is restricted to those most prominent. We argue that a comparative approach can expand upon this paradigm to enable richer forms of dataset inspection that go beyond the most prominent concepts.
+          </p>
+          <p>
+To enable dataset comparison we present a module that learns concept-level prototypes across datasets. We leverage self-supervised learning to discover these prototypes without supervision, and we demonstrate the benefits of our approach in two case-studies. Our findings show that dataset comparison extends dataset inspection and we hope to encourage more works in this direction.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+
+<!--
+  <section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+      <!-- Prototypes -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Learned Prototypes</h2>
+
+        <div class="content has-text-justified">
+          <p>
+          ProtoSim discovers prototypes in a self-supervised manner, allowing it to be applied to multiple datasets during training. After training we can explore the prototypes and compare datasets. Below we show a comparison between <a href="https://www.image-net.org/">ImageNet</a> and <a href="https://www.robots.ox.ac.uk/~vgg/data/pass/">PASS</a>:
+          </p>
+        </div>
+        <div class="columns is-vcentered">
+     <img src="./static/images/results.png"
+                 alt="Prototypes discovered with ProtoSim on ImageNet and PASS."/>
+          </div>
+        </div>
+    </div>
+        <br/>
+      <!-- / Prototypes -->
+
+    <div class="columns is-centered">
+      <!-- Visual prop. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Low-level Visual Properties</h2>
+          <p>
+            In addition to semantic prototypes, ProtoSim also discovers prototypes which capture low-level visual properties, such as motion blur and a shallow depth-of-field.
+          </p>
+          <p>
+     <img src="./static/images/motionblur.png"
+          alt="Four examples images for a prototype that captures motion blur."/></p><p>
+     <img src="./static/images/shallow-dof.png"
+                 alt="Four example images for a prototype that captures a shallow depth-of-field."/>
+          </p>
+        </div>
+      </div>
+      <!--/ Visual prop. -->
+
+      <!-- heatmap. -->
+      <div class="column">
+        <h2 class="title is-3">Attention Maps</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              By visualising the attention maps we can show in which parts of the image the prototype is found.
+            </p>
+     <img src="./static/images/heatmap.png"
+                 alt="Four example images for a prototype that activates for human skin, with attention maps to show prototype activations."/>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ heatmap. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{vannoord2023protosim,
+  author    = {{van Noord}, Nanne},
+  title     = {Prototype-based Dataset Comparison},
+  booktitle = {ICCV},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website is modified from the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies source code</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
