@@ -1,5 +1,5 @@
 # ProtoSim
-Code and instructions accompanying Protoype-based Dataset Comparison (ICCV'23).
+Code and instructions accompanying Prototype-based Dataset Comparison (ICCV'23).
 
 ## Pre-trained Checkpoints
 
@@ -12,17 +12,21 @@ The pre-trained DINO checkpoint for the ViT backbone is available here: https://
 Train the model on PASSNET as follows:
 
 ```
-python -m torch.distributed.run --nproc_per_node=1 main.py --arch pvit_small --batch_size_per_gpu=128 --min_lr=0.00005 --use_fp16=False --out_dim=65536 --epochs=20 --output_dir=checkpoints_passnet --num_prototypes=8192 --patch_size=16 --data-set=PASSNET --data_path=/path/to/data/parent/dir/
+python -m torch.distributed.run main.py --arch pvit_small --batch_size_per_gpu=128 --min_lr=0.00005 --use_fp16=False --epochs=20 --output_dir=checkpoints --num_prototypes=8192 --patch_size=16 --data_path=/path/to/first/dataset/,/path/to/second/dataset/
 ```
 
-Extract the token and prototype statistics:
+For linear evaluation on ImageNet:
 
 ```
-python -m torch.distributed.run --nproc_per_node=1 visualise_protosim.py --do_stats=True --arch pvit_small --batch_size_per_gpu=256 --use_fp16=False  --output_dir=checkpoints_passnet --num_prototypes=8192 --patch_size=16 --data-set=PASSNET --data_path=/path/to/data/parent/dir/
+python -m torch.distributed.run eval_protosim_linear.py --arch=pvit_small --num_prototypes=8192 --patch_size=16 --data_path=/path/to/ImageNet1K --pretrained_weights=checkpoints/checkpoint.pth --output_dir=linear_eval --epochs=20 --batch_size_per_gpu=256
 ```
 
-Use the notebooks to guide your comparison of the two datasets.
+### Dataset Comparison
 
-## Dataset structure
+To prepare the comparison you first need to extract statistics about the prototypes and their activations with:
 
-TBD
+```
+python -m torch.distributed.run prepare_analysis.py --arch pvit_small --batch_size_per_gpu=256 --use_fp16=False --output_dir=checkpoints --num_prototypes=8192 --patch_size=16 --data_path=/path/to/imagenet/,/path/to/pass/
+```
+
+Subsequently, you can use the notebooks to guide your comparison of the two datasets by loading the `stats.npz` file generated with prepare_analysis.py. Within the notebooks various mechanisms for discovering   

@@ -27,7 +27,6 @@ def eval_linear(args):
     cudnn.benchmark = True
 
     # ============ building network ... ============
-    # if the network is a Vision Transformer (i.e. vit_tiny, vit_small, vit_base)
     if args.arch in pvits.__dict__.keys():
         model = pvits.__dict__[args.arch](
             num_prototypes=args.num_prototypes, 
@@ -35,7 +34,7 @@ def eval_linear(args):
             num_classes=0
         )
         model.protoAT.hard = True
-        model.protoAT.gumbel = False
+        model.protoAT.gumbel = False # don't use gumbel for eval
         embed_dim = model.embed_dim
     else:
         print(f"Unknow architecture: {args.arch}")
