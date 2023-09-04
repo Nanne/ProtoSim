@@ -1,6 +1,8 @@
 # ProtoSim
 Code and instructions accompanying Prototype-based Dataset Comparison (ICCV'23).
 
+[[Project Page]](https://nanne.github.io/ProtoSim/)
+
 ## Pre-trained Checkpoints
 
 Pre-trained checkpoints for the PASSNET and Art datasets can be downloaded at: https://drive.google.com/drive/folders/1fQYi7vNgcrpVB98wmlD3oxsBJB-3em8R 
@@ -30,3 +32,14 @@ python -m torch.distributed.run prepare_analysis.py --arch pvit_small --batch_si
 ```
 
 Subsequently, you can use the notebooks to guide your comparison of the two datasets by loading the `stats.npz` file generated with prepare_analysis.py. Within the notebooks various mechanisms for discovering   
+
+## Citation
+
+```
+@inproceedings{vannoord2023protosim,
+  author    = {{van Noord}, Nanne},
+  title     = {Prototype-based Dataset Comparison},
+  booktitle = {ICCV},
+  year      = {2023},
+}
+```
