@@ -1,7 +1,7 @@
 # ProtoSim
 Code and instructions accompanying Prototype-based Dataset Comparison (ICCV'23).
 
-[[Project Page]](https://nanne.github.io/ProtoSim/)
+[[Paper]](https://arxiv.org/abs/2309.02401) [[Project Page]](https://nanne.github.io/ProtoSim/)
 
 ## Pre-trained Checkpoints
 
