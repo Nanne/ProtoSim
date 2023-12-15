@@ -171,9 +171,6 @@ def train_protosim(args):
     start_time = time.time()
     print("Starting ProtoSim+DINO training !")
 
-    student.module.backbone.protoAT.hard = True
-    student.module.backbone.protoAT.gumbel = False
-
     for epoch in range(start_epoch, args.epochs):
         data_loader.sampler.set_epoch(epoch)
 
